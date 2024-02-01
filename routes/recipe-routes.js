@@ -6,6 +6,6 @@ router.route('/')
   .post(recipeController.add);  //add a user
 
 router.route("/:id")
-  .get(recipeController.findOne)  //find user id
+  .get(recipeController.findOne)  //find recipe id
 
   module.exports = router;
