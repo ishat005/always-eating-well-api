@@ -1,7 +1,6 @@
 const knex = require('knex')(require('../knexfile'));
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const authorize = require('../middleware/authorize');
 const SECRET_KEY = 'a6cfdc61521e915a69980ad06ab80a6e769c1e700818c885d31f2ce4d84b5127';
 
 
@@ -81,7 +80,7 @@ const index = async (_req, res) => {
     const authHeader = req.headers.authorization;
     const authToken = authHeader.split(' ')[1];
 
-    console.log(authToken);
+    // console.log(authToken);
     // create a variable that stores the authorization token
     // Create a variable to split the auth header and store the second item in the arra
       // Verify the token
@@ -92,7 +91,7 @@ const index = async (_req, res) => {
         // Respond with the appropriate user data
         const user = await knex('user').where({id: decoded.id}).first();
 
-        console.log(user);
+        // console.log(user);
         // Get the user by accessing the users table and retrieving the user by decoded.id
         // dont forget to delete the password before sending back the users info
         delete user.password
